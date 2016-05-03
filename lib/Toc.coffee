@@ -127,8 +127,11 @@ class Toc
     indicesOfDepth = Array.apply(null, new Array(depthTo - depthFrom)).map(Number.prototype.valueOf, 0);
     for own i, item of @list
       row = []
-      for tab in [0..item.depth] when tab > depthFrom
-        row.push " "
+      for tab in [0..item.depth] when tab-1 > depthFrom
+        if @options.orderedList is 1
+          row.push "   "
+        else
+          row.push " "
       if @options.orderedList is 1
         row.push ++indicesOfDepth[item.depth-1] + ". "
         indicesOfDepth = indicesOfDepth.map((value, index) -> if index < item.depth then value else 0)
