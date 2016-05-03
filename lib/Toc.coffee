@@ -131,7 +131,7 @@ class Toc
         if @options.orderedList is 1
           row.push "   "
         else
-          row.push " "
+          row.push "  "
       if @options.orderedList is 1
         row.push ++indicesOfDepth[item.depth-1] + ". "
         indicesOfDepth = indicesOfDepth.map((value, index) -> if index < item.depth then value else 0)
